@@ -1,0 +1,180 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Token Harbor Usage</title>
+    <style>
+      html,
+      body {
+        min-height: 100%;
+        margin: 0;
+      }
+
+      html {
+        /* Every panel value is rem, so scaling the root scales all text by
+           0.875rem x 1.25. !important is required: the SDK sets this exact
+           inline on documentElement (applyHostReady in main.js) and an
+           inline normal declaration would otherwise win. */
+        font-size: 1.09375rem !important;
+      }
+
+      body {
+        background: var(--oc-bg);
+        color: var(--oc-fg);
+        font-family: var(--oc-font);
+        font-size: 0.875rem;
+        line-height: 1.45;
+        overflow-wrap: anywhere;
+      }
+
+      #root {
+        min-height: 100vh;
+        padding: 12px;
+        box-sizing: border-box;
+      }
+
+      .usage-app {
+        display: flex;
+        /* 420px x 1.25, so the wider text keeps the same room per column. */
+        max-width: 525px;
+        margin: 0 auto;
+        flex-direction: column;
+        gap: 10px;
+      }
+
+      .usage-header,
+      .usage-footer,
+      .usage-heading {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 8px;
+        min-width: 0;
+      }
+
+      .usage-title-block {
+        min-width: 0;
+      }
+
+      h1,
+      h2 {
+        margin: 0;
+      }
+
+      .usage-header h1 {
+        font-size: 1rem;
+        font-weight: 600;
+        letter-spacing: -0.01em;
+      }
+
+      .usage-subtitle,
+      .usage-source,
+      .usage-reset,
+      .usage-unavailable-copy,
+      .usage-footer {
+        color: var(--oc-muted);
+        font-size: 0.75rem;
+      }
+
+      .usage-badge {
+        flex: 0 0 auto;
+      }
+
+      /* The SDK badge is the only px-sized text (11px at root 14px = 0.7857rem);
+         pin it to the new root so it grows with the rest. Higher specificity
+         than the injected .oc-sdk-badge rule, so no !important needed. */
+      .usage-badge .oc-sdk-badge {
+        font-size: 0.7857rem;
+        line-height: 1.45;
+      }
+
+      .usage-notices,
+      .usage-message,
+      .usage-content {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+      }
+
+      .usage-notices:empty,
+      .usage-message:empty {
+        display: none;
+      }
+
+      .usage-section {
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+        padding: 10px;
+        border: 1px solid var(--oc-border);
+        border-radius: var(--oc-radius);
+        background: var(--oc-elevated);
+      }
+
+      /* Any heading inside a section, whether it sits in a `.usage-heading`
+         row or alone, as the window card does. */
+      .usage-section h2 {
+        font-size: 0.8125rem;
+        font-weight: 600;
+      }
+
+      .usage-percent {
+        color: var(--oc-muted);
+        font-family: var(--oc-mono);
+        font-size: 0.75rem;
+        font-variant-numeric: tabular-nums;
+      }
+
+      /* The kit's own caption repeats the percentage in a second line; the
+         heading above already carries it. */
+      .usage-progress .oc-sdk-progress-label {
+        display: none;
+      }
+
+      .usage-reset,
+      .usage-source {
+        font-family: var(--oc-mono);
+        font-variant-numeric: tabular-nums;
+      }
+
+      .usage-unavailable {
+        min-height: 50px;
+        justify-content: center;
+      }
+
+      .usage-models {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 4px;
+      }
+
+      .usage-chip {
+        padding: 1px 7px;
+        border: 1px solid var(--oc-border);
+        border-radius: 999px;
+        color: var(--oc-muted);
+        font-family: var(--oc-mono);
+        font-size: 0.6875rem;
+      }
+
+      .usage-footer {
+        padding-top: 2px;
+      }
+
+      .usage-actions {
+        flex: 0 0 auto;
+      }
+
+      @media (max-width: 350px) {
+        #root {
+          padding: 8px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main id="root"></main>
+    <script src="main.js"></script>
+  </body>
+</html>

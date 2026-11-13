@@ -1,0 +1,44 @@
+{
+  "name": "openchamber-tokenharbor-usage",
+  "version": "1.0.0",
+  "description": "OpenChamber extension that displays Token Harbor Pass and free-model allowance from the Token Harbor API.",
+  "license": "MIT",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "test": "bun test",
+    "typecheck": "tsc -p tsconfig.json",
+    "build": "bunx --no-install openchamber-guest-bundle panel/main.ts panel/main.js",
+    "preview": "bunx --no-install openchamber-guest-bundle preview/preview.ts preview/preview.js && bun preview/build-html.ts && bun preview/serve.ts"
+  },
+  "openchamber": {
+    "apiVersion": 1,
+    "engines": {
+      "openchamber": ">=1.24.0"
+    },
+    "contributes": {
+      "integration": {
+        "name": "Token Harbor",
+        "description": "Reads the Token Harbor allowance API for the usage panel.",
+        "token": {
+          "apiOrigin": "https://tokenharbor.ai",
+          "scheme": "bearer"
+        }
+      },
+      "panel": {
+        "id": "tokenharbor-usage",
+        "name": "Token Harbor Usage",
+        "icon": "bar-chart-2",
+        "entry": "panel/index.html"
+      }
+    }
+  },
+  "dependencies": {
+    "@openchamber/sdk": "1.24.2"
+  },
+  "devDependencies": {
+    "@types/node": "^26.6.6",
+    "happy-dom": "^21.0.4",
+    "typescript": "^7.0.2"
+  }
+}
