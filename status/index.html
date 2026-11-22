@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Token Harbor Usage</title>
+    <style>
+      html,
+      body {
+        min-height: 100%;
+        margin: 0;
+      }
+
+      html {
+        font-size: 1.09375rem !important;
+      }
+
+      body {
+        background: transparent;
+        color: var(--oc-fg);
+        font-family: var(--oc-font);
+        font-size: 0.875rem;
+        line-height: 1.45;
+        overflow-wrap: anywhere;
+      }
+
+      #root {
+        padding: 2px 2px 0;
+      }
+
+      .status-app {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+      }
+
+      .status-row {
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+      }
+
+      .status-head {
+        display: flex;
+        align-items: baseline;
+        justify-content: space-between;
+        gap: 8px;
+      }
+
+      .status-label {
+        font-size: 0.75rem;
+        font-weight: 600;
+      }
+
+      .status-value {
+        color: var(--oc-muted);
+        font-family: var(--oc-mono);
+        font-size: 0.6875rem;
+        font-variant-numeric: tabular-nums;
+      }
+
+      /* The kit's caption repeats the percentage; the head already has it. */
+      .status-bar .oc-sdk-progress-label {
+        display: none;
+      }
+
+      .status-detail,
+      .status-note {
+        color: var(--oc-muted);
+        font-size: 0.6875rem;
+        font-family: var(--oc-mono);
+      }
+
+      .status-fail {
+        font-family: var(--oc-font);
+      }
+    </style>
+  </head>
+  <body>
+    <main id="root"></main>
+    <script src="status.js"></script>
+  </body>
+</html>

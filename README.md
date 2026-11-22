@@ -25,10 +25,12 @@ see the spent and no-Pass states.
   turned on for the account
 - Manual refresh, one refresh when the panel opens, and refreshes every five
   minutes while it stays open
+- A **Work Status section** in the chat's panel with the same two meters in three
+  compact lines, refreshed every minute while it is open
 
 ## Requirements
 
-- OpenChamber with extension support (`>=1.24.0`)
+- OpenChamber with extension support (`>=2.2.0`)
 - A Token Harbor API key (`thk_live_...`)
 
 ### Where the key comes from
@@ -45,7 +47,8 @@ and points at the Integrations card.
 
 ## Installation
 
-The repository includes the generated `panel/main.js` required by OpenChamber.
+The repository includes the generated `panel/main.js` and `status/status.js`
+required by OpenChamber.
 Git URL installation does not run `npm install` or compile TypeScript for the
 extension, so that file is committed.
 

@@ -8,13 +8,13 @@
   "scripts": {
     "test": "bun test",
     "typecheck": "tsc -p tsconfig.json",
-    "build": "bunx --no-install openchamber-guest-bundle panel/main.ts panel/main.js",
+    "build": "bunx --no-install openchamber-guest-bundle panel/main.ts panel/main.js && bunx --no-install openchamber-guest-bundle status/status.ts status/status.js",
     "preview": "bunx --no-install openchamber-guest-bundle preview/preview.ts preview/preview.js && bun preview/build-html.ts && bun preview/serve.ts"
   },
   "openchamber": {
     "apiVersion": 1,
     "engines": {
-      "openchamber": ">=1.24.0"
+      "openchamber": ">=2.2.0"
     },
     "contributes": {
       "integration": {
@@ -30,11 +30,16 @@
         "name": "Token Harbor Usage",
         "icon": "bar-chart-2",
         "entry": "panel/index.html"
+      },
+      "statusSection": {
+        "entry": "status/index.html",
+        "title": "Token Harbor allowance",
+        "height": 150
       }
     }
   },
   "dependencies": {
-    "@openchamber/sdk": "1.24.2"
+    "@openchamber/sdk": "^2.8.0"
   },
   "devDependencies": {
     "@types/node": "^26.6.6",
